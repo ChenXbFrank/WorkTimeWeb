@@ -1,0 +1,166 @@
+<!--[ arg basePath,totalTime,employeeName, worktimes, year, month, grade; ]-->
+<!DOCTYPE html>
+<html>
+<head lang="zh-CN">
+    <meta charset="UTF-8">
+    <base href="${basePath}" />
+    <title>员工信息</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="${basePath}attendance/cssLib/bootstrap.css"/>
+    <link rel="stylesheet" href="${basePath}attendance/css/base.css"/>
+    <link rel="stylesheet" href="${basePath}attendance/css/employee_info.css"/>
+	</head>          
+	<body>         
+		<div class="container">
+			<div class="header">
+				<button type="button" class="btn btn-default home" aria-label="Left Align">
+				  <span class="glyphicon glyphicon-home" aria-hidden="true"></span> 主页 
+				</button>
+				<button type="button" class="btn btn-default hidden set" aria-label="Left Align">
+				  <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> 系统设置
+				</button>
+				<button type="button" class="btn btn-default employees" aria-label="Left Align">
+				  <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> 员工信息
+				</button>
+				<button type="button" class="btn btn-default hidden statistics" aria-label="Left Align">
+				  <span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span> 统计
+				</button>
+				<button type="button" class="btn btn-default exit" aria-label="Left Align">
+				  <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> 退出登录
+				</button>
+			</div>
+			
+			<form id="exportData" action="/WorkTime/record/getOneEmpWorkTime" method="post">
+				<input type="hidden" id="employeeNo" name="employeeNo"  value="${worktimes.get(0).getEmployeeNo()}" />
+				<input type="hidden" id="employeeName" name="employeeName" value="${employeeName}" />
+				<input type="hidden" id="year" name="year"  value="${year}" />
+				<input type="hidden" id="month" name="month"  value="${month}" />
+			</form>
+			
+			<ul class="list-group">
+			  <li class="list-group-item">
+			  <span>当前员工： <span id="employeeName">${employeeName}
+				  <div id="export" class="btn btn-primary">导出
+				  </div>
+			  </span>
+			  </li>
+			  
+			  <li class="list-group-item">
+			  	<table class="table table-bordered table-hover">
+				<thead>
+					<th>序号</th>
+					<th>实际打卡时间</th>
+					<th>上午工时(分钟) </th>
+			  		<th>下午工时(分钟) </th>
+			  		<th>晚上工时(分钟)</th>
+			  		<th>工时小计(分钟)</th>
+			  		<th>备注</th>
+			  		<!--[ if(grade == 1){ ]-->
+			  		<th>操作</th>
+			  		<!--[ } ]-->
+				</thead>
+			  <tbody>
+			  	<!--[ loop(item : worktimes){ ]-->
+			  	<tr id="${item.getId()}">
+			  		<td>${item_index}</td>
+			  		<td><sapn class="morning">${item.getFirstRecord()}</sapn> ~ <span class="after">${item.getLastRecord()}</span></td>
+			  		<td>${item.getMorningworktime()}</td>
+			  		<td>${item.getAfternoonworktime()}</td>
+			  		<td>${item.getNightworktime()}</td>
+			  		<td>${item.getMorningworktime()+ item.getAfternoonworktime() + item.getNightworktime() }</td>
+			  		<!--[ if(grade == 1){ ]-->
+			  			<td class="remarks">
+			  		<!--[ }else{ ]-->
+			  			<td class="remarks disabled">
+			  		<!--[ } ]-->
+			  		<!--[ if(item.getRemarks() != null){ ]-->
+			  			<span>已备注</span>
+			  		<!--[ }else{ ]-->
+			  			<span class="hidden">已备注</span>
+			  		<!--[ } ]-->
+			  		<textarea cols="5" rows="2" >${item.getRemarks()}</textarea>
+			  		</td>
+			  		
+			  		<!--[ if(grade == 1){ ]-->
+			  		<td class="operate"><a class="modify" >修改</a> <a class="delete">删除</a></td>
+			  		<!--[ } ]-->
+			  	</tr>
+			   <!--[ } ]-->
+		  		<tr >
+		  			<td colspan="2">总计</td>
+		  			<td>--</td>
+		  			<td>--</td>
+		  			<td>--</td>
+		  			<td>总计: ${totalTime}/小时</td>
+		  			<td>--</td>
+		  			<!--[ if(grade == 1){ ]-->
+		  			<td>--</td>
+		  			<!--[ } ]-->
+		  		</tr>
+			  </tbody>
+			
+			</table>
+			  </li>
+			</ul>
+			<input type="hidden" id="employeeNo" value="${worktimes.get(0).getEmployeeNo()}" />
+			<!--<div class="alert-box">
+			<ul >
+			  <li >
+			  	<input class="alert-morning" type="text" placeholder="添加上午打卡时间"/>
+			  </li>
+			   <li >
+			  	<input class="alert-after" type="text" placeholder="添加下午打卡时间"/>
+			  </li>
+			   <li class="marks-box">
+			  	<textarea placeholder="添加备注"></textarea>
+			  </li>
+			  </ul>
+			  <div >
+			  	<div class="cancel-box">
+			  		<a class="btn btn-primary">取消</a>
+			  	</div>
+			  	<div class="sure-box">
+			  		<a class="btn btn-primary">确定</a>
+			  	</div>
+			  </div>
+			</div>-->
+			
+			<div id="modify" class="x-alert x-alert-box modify-alert">  <!-- 弹出框 -->
+				<h3>
+					<label ><input name="choose" checked type="radio" value="modify" />修改</label>
+					<label ><input name="choose" type="radio" value="add" />增加</label>
+				</h3>
+				<div class="x-alert-body alert-body">
+					<ul >
+					  <li >
+					  	<input class="alert-morning" type="text" placeholder="添加上午打卡时间"/>
+					  </li>
+					   <li >
+					  	<input class="alert-after" type="text" placeholder="添加下午打卡时间"/>
+					  </li>
+					   <li class="marks-box">
+					  	<textarea placeholder="添加备注"></textarea>
+					  </li>
+				   </ul>
+				</div>
+				<div class="btn-box">
+					<a class="cancel" >取消</a>
+					<a class="sure" >确定</a>
+				</div>
+			</div>
+			
+			<div class="x-mask"></div>   <!-- 遮罩层 -->
+			<div id="delete" class="x-alert x-alert-box">  <!-- 弹出框 -->
+				<h3>确定要删除该记录吗？</h3>
+				<div class="btn-box">
+					<a class="cancel" >取消</a>
+					<a class="sure" >确定</a>
+				</div>
+			</div>
+		</div>
+	<script type="application/javascript" src="${basePath}attendance/jsLib/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="${basePath}attendance/js/base.js"></script>
+	<script type="text/javascript" src="${basePath}attendance/js/employee_info.js"></script>
+	</body>
+</html>

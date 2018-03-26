@@ -1,0 +1,154 @@
+<!--[ arg basePath, list, user, grade; ]-->
+<!DOCTYPE html>
+<html>
+<head lang="zh-CN">
+    <meta charset="UTF-8">
+    <base href="${basePath}" />
+    <title>员工信息</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="${basePath}attendance/cssLib/bootstrap.css"/>
+    <link rel="stylesheet" href="${basePath}attendance/css/base.css"/>
+    <link rel="stylesheet" href="${basePath}attendance/css/employees_info.css"/>
+	</head>          
+	<body>         
+		<div class="container">
+			<div class="header">
+				<button type="button" class="btn btn-default home" aria-label="Left Align">
+				  <span class="glyphicon glyphicon-home" aria-hidden="true"></span> 主页 
+				</button>
+				<button type="button" class="btn btn-default set hidden" aria-label="Left Align">
+				  <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> 系统设置
+				</button>
+				<button type="button" class="btn btn-default employees" aria-label="Left Align">
+				  <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> 员工信息
+				</button>
+				<button type="button"  class="btn btn-default hidden statistics" aria-label="Left Align">
+				  <span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span> 统计
+				</button>
+				<button type="button" class="btn btn-default exit" aria-label="Left Align">
+				  <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> 退出登录
+				</button>
+			</div>
+			
+			共 ${list.size()}人 
+			<table class="table table-bordered table-hover">
+				<thead >
+					<th>序号</th>
+					<th >姓名</th>
+					<th >工号</th>
+					<th >性别</th>
+			  		<th >电话</th>
+			  		<th >邮箱</th>
+			  		<th >毕业院校</th>
+			  		<th >专业</th>
+			  		<th >出生年月</th>
+			  		<th >住址</th>
+			  		<!--[ if(grade == 1){ ]-->
+			  		<th >编辑</th>
+			  		<!--[ } ]-->
+				</thead>
+			  <tbody>
+			  <!--[ loop(item : list){ ]-->
+			  	<tr id="${item.getId()}" js-obj="${item.getId()}">
+			  		<td >${item_index+1}</td>
+			  		<td js-name="employeeName">${item.getEmployeeName()}</td>
+			  		<td js-name="employeeNo">${item.getEmployeeNo()}</td>
+			  		<td js-name="sex">${item.getSex()}</td>
+			  		<td js-name="phone">${item.getPhone()}</td>
+			  		<td js-name="email" js-attr-src="src" >${item.getEmail()}</td>
+			  		<td js-name="university" src="3333" >${item.getUniversity()}</td>
+			  		<td js-name="institute">${item.getInstitute()}</td>
+			  		<td js-name="birthday">${item.getBirthday()}</td>
+			  		<td js-name="address">${item.getAddress()}</td>
+			  		<!--[ if(grade == 1){ ]-->
+			  		<td class="operate"><a class="modify" >修改</a> <a class="delete">删除</a></td>
+			  		<!--[ } ]-->
+			  	</tr>
+			  	<!--[ } ]-->
+			  </tbody>
+			
+			</table>
+			
+			<div id="modify" class="x-alert x-alert-box modify-alert">  <!-- 弹出框 -->
+				<h3>
+					<label ><input name="choose" id="modifyInput" checked type="radio" value="modify" />修改</label>
+					<label ><input name="choose" id="addInput" type="radio" value="add" />增加</label>
+				</h3>
+				<div class="x-alert-body alert-body">
+					<ul js-obj="alert">
+					  <li class="marks-box">
+					  	<input disabled="disabled" js-name="employeeName" class="employeeName" type="text" placeholder="姓名"/>
+					  </li>
+					  <li class="marks-box">
+					  		<input disabled="disabled" js-name="employeeNo" class="employeeNo" type="text" placeholder="工号"/>
+					  	</li>
+					   <li class="marks-box">
+					  	<input js-name="sex" class="alert-after" type="text" placeholder="性别"/>
+					  </li>
+					  <li class="marks-box">
+					  		<input js-name="phone" class="alert-after" type="text" placeholder="电话"/>
+					  	</li>
+					   <li class="marks-box">
+					  		<input js-name="email" class="alert-after" type="text" placeholder="邮箱"/>
+					  </li>
+					  <li class="marks-box">
+					  		<input js-name="university" class="alert-after" type="text" placeholder="毕业院校"/>
+					  	</li>
+					  <li class="marks-box">
+					  	<input js-name="institute" class="alert-after" type="text" placeholder="专业"/>
+					  </li>
+					  <li class="marks-box">
+					  		<input js-name="birthday" class="alert-after" type="text" placeholder="出生年月"/>
+					  	</li>
+					   <li class="marks-box">
+					  	<input js-name="address" class="alert-after" type="text" placeholder="住址"/>
+					  </li>
+				   </ul>
+				</div>
+				<div class="btn-box">
+					<a class="cancel" >取消</a>
+					<a class="sure" >确定</a>
+				</div>
+			</div>
+			
+			
+			
+			<div class="x-mask"></div>   <!-- 遮罩层 -->
+			<div id="delete" class="x-alert x-alert-box">  <!-- 弹出框 -->
+				<h3>确定要删除该记录吗？</h3>
+				<div class="btn-box">
+					<a class="cancel" >取消</a>
+					<a class="sure" >确定</a>
+				</div>
+			</div>
+			
+			<!-- 
+			<nav>
+			  <ul class="pagination">
+			    <li>
+			      <a href="#" aria-label="Previous">
+			        <span aria-hidden="true">&laquo;</span>
+			      </a>
+			    </li>
+			    <li><a href="#">1</a></li>
+			    <li><a href="#">2</a></li>
+			    <li><a href="#">3</a></li>
+			    <li><a href="#">4</a></li>
+			    <li><a href="#">5</a></li>
+			    <li>
+			      <a href="#" aria-label="Next">
+			        <span aria-hidden="true">&raquo;</span>
+			      </a>
+			    </li>
+			  </ul>
+			</nav>-->
+		</div>
+		
+		
+		
+	<script type="application/javascript" src="${basePath}attendance/jsLib/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="${basePath}attendance/js/base.js"></script>
+	<script type="text/javascript" src="${basePath}attendance/js/employees_info.js"></script>
+	</body>
+</html>

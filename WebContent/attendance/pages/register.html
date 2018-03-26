@@ -1,0 +1,50 @@
+<!--[ arg basePath,staticPath; ]-->
+<!DOCTYPE html>
+<html>
+<head lang="zh-CN">
+    <meta charset="UTF-8">
+    <base href="${basePath}" data-staticpath="${staticPath}">
+    <title>注册</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="${basePath}attendance/cssLib/bootstrap.css"/>
+    <link rel="stylesheet" href="${basePath}attendance/css/base.css"/>
+    <link rel="stylesheet" href="${basePath}attendance/css/register.css"/>
+	</head>          
+	<body>         
+		<div class="container">
+			<form class="form-horizontal"  action="user/register" method="post" >
+			  <div class="form-group">
+			    <label for="inputEmail3" class="col-sm-2 control-label">用户名：</label>
+			    <div class="col-sm-10">
+			      <input type="email" name="username" class="form-control" id="inputEmail3" placeholder="请输入用户名">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="inputPassword3" class="col-sm-2 control-label">密码：</label>
+			    <div class="col-sm-10">
+			      <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="请输入密码">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="inputPassword3" class="col-sm-2 control-label">确认密码：</label>
+			    <div class="col-sm-10">
+			      <input type="password" class="form-control" id="inputPassword3" placeholder="请再次输入密码">
+			    </div>
+			  </div>
+			  
+			  <div class="form-group">
+			    <div class="col-sm-offset-2 col-sm-10">
+			      <button type="button" id="login"  class="btn btn-default">提交</button>
+			    </div>
+			  </div>
+			</form>
+		</div>
+		
+		
+		
+	<script type="application/javascript" src="${basePath}attendance/jsLib/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="${basePath}attendance/js/base.js"></script>
+	<script type="text/javascript" src="${basePath}attendance/js/register.js"></script>
+	</body>
+</html>

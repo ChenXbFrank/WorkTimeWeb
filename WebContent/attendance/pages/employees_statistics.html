@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-CN">
+    <meta charset="UTF-8">
+    <base href="${basePath}" data-staticpath="${staticPath}">
+    <title>综合统计</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../cssLib/bootstrap.css"/>
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/employees_statistics.css"/>
+	</head>          
+	<body>         
+		<div class="container">
+			<div class="header">
+				<button type="button" class="btn btn-default home" aria-label="Left Align">
+				  <span class="glyphicon glyphicon-home" aria-hidden="true"></span> 主页 
+				</button>
+				<button type="button" class="btn btn-default set" aria-label="Left Align">
+				  <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> 系统设置
+				</button>
+				<button type="button" class="btn btn-default employees" aria-label="Left Align">
+				  <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> 员工信息
+				</button>
+				<button type="button" class="btn btn-default statistics" aria-label="Left Align">
+				  <span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span> 统计
+				</button>
+				<button type="button" class="btn btn-default exit" aria-label="Left Align">
+				  <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> 退出登录
+				</button>
+			</div>
+			选择时间： <input class="time" type="text" value="2016" />年<input class="time"  type="text" value="03" />月<input class="time"  type="text" value="33" />日
+			——<input class="time"  type="text" value="2016" />年<input class="time"  type="text" value="03" />月<input class="time"  type="text" value="33" />日
+			折算：990小时——45天——1.3个月——0.11年
+			
+			<br />选择员工：<input type="radio" value="全部"  checked/>全部  <input type="radio" value="某人" />某人  <input type="radio" value="某些人" />某些人 
+			<br />选择类型：<input type="checkbox" value="全部" checked />全部 
+			<input type="checkbox" value="迟到" />迟到  <input type="checkbox" value="早退" />早退 
+			 <input type="checkbox" value="请假" />请假  <input type="checkbox" value="旷工" />旷工 
+			 <input type="checkbox" value="休假" />休假  <input type="checkbox" value="节假日" />节假日 
+			  <input type="checkbox" value="工时" />工时(小时) 
+			  <input type="checkbox" value="工时" />工时(天) 
+			  
+			  <br />
+			  
+			  <table class="table table-bordered table-hover">
+				<thead>
+					<th>序号</th>
+					<th>姓名</th>
+					<th>工时(小时) </th>
+			  		<th>工时(天) </th>
+			  		<th>节假日</th>
+			  		<th>休假</th>
+			  		<th>请假</th>
+			  		
+			  		<th>早退</th>
+			  		<th>迟到</th>
+			  		<th>旷工</th>
+			  		
+			  		<th>备注</th>
+				</thead>
+			  <tbody>
+			  	<tr>
+			  		<td>01</td>
+			  		<td><a href="employee.html">陈小兵</a></td>
+			  		<td>800小时</td>
+			  		<td><a href="">33天</a></td>
+			  		<td><a href="">8天</a></td>
+			  		<td><a href="">0天</a></td>
+			  		<td><a href="">1天</a></td>
+			  		<td>0天</td>
+			  		<td>0天</td>
+			  		<td>1天</td>
+			  		<td>无</td>
+			  	</tr>
+			  	<tr>
+			  		<td>02</td>
+			  		<td><a href="employee.html">魏小强</a></td>
+			  		<td>800小时</td>
+			  		<td><a href="">33天</a></td>
+			  		<td><a href="">8天</a></td>
+			  		<td><a href="">0天</a></td>
+			  		<td><a href="">1天</a></td>
+			  		<td>0天</td>
+			  		<td>0天</td>
+			  		<td>1天</td>
+			  		<td>无</td>
+			  	</tr>
+			  	
+			  </tbody>
+			
+			</table>
+			  
+			  
+			  
+		</div>
+		
+		
+		
+	<script type="application/javascript" src="../jsLib/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="../js/base.js"></script>
+	<script type="text/javascript" src="../js/employees_statistics.js"></script>
+	</body>
+</html>

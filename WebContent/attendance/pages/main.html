@@ -1,0 +1,76 @@
+<!--[ arg basePath, list, username; ]-->
+<!DOCTYPE html>
+<html>
+<head lang="zh-CN">
+    <meta charset="UTF-8">
+    <base href="${basePath}" />
+    <title>主页</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="${basePath}attendance/cssLib/bootstrap.css"/>
+    <link rel="stylesheet" href="${basePath}attendance/css/base.css"/>
+    <link rel="stylesheet" href="${basePath}attendance/css/main.css"/>
+	</head>          
+	<body>         
+		<div class="container">
+			<div class="header">
+				<button type="button" class="btn btn-default home" aria-label="Left Align">
+				  <span class="glyphicon glyphicon-home" aria-hidden="true"></span> 主页 
+				</button>
+				<button type="button" class="btn btn-default hidden set" aria-label="Left Align">
+				  <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> 系统设置
+				</button>
+				<button type="button" class="btn btn-default employees" aria-label="Left Align">
+				  <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> 员工信息
+				</button>
+				<button type="button" class="btn btn-default hidden statistics" aria-label="Left Align">
+				  <span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span> 统计
+				</button>
+				<div class="upload-box">
+				<form action="record/upload" target="" method="post" id="uploadForm" enctype="multipart/form-data">
+				　<button type="submit" class="btn btn-default upload" aria-label="Left Align">
+					  <span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span> 上传文件
+					</button>
+					<div class="choose-file btn btn-primary">
+						选择文件
+						<input name="filename" class="file" type="file" value="上传文件"/>
+					</div>
+				</form>
+				</div>
+				
+				<button type="button" class="btn btn-default exit" aria-label="Left Align">
+				  <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> 退出登录
+				</button>
+				<div class="client">
+					<span>当前用户：</span><span>${username}</span>
+				</div>
+			</div><br><br><br>
+			共 ${list.size()}人 <br><br>
+		员工工号：<input type="text" id="employeeNo" value="003000009" name="employeeNo">&nbsp;&nbsp;年：<input type="text" id="year" name="year" value="2016">&nbsp;&nbsp;月：<input type="text" id="month" name="month" value="11">&nbsp;&nbsp;
+		<div id="submit" class="btn btn-primary">查询</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		
+		<!-- <div id="export" class="btn btn-primary">导出</div>&nbsp;&nbsp; -->
+		
+	<br><br>	
+			<table class="table table-bordered table-hover">
+				<thead>
+					<th>序号</th>
+					<th>姓名</th>
+					<th>工号</th>
+				</thead>
+			  <tbody>
+			  <!--[ loop(item : list){ ]-->
+			  	<tr>
+			  		<td>${item_index+1}</td>
+			  		<td><a class="query" data-href="worktime/find?employeeNo=${item.getEmployeeNo()}">${item.getEmployeeName()}</a></td>
+			  		<td>${item.getEmployeeNo()}</td>
+			  	</tr>
+			  	<!--[ } ]-->
+			  </tbody>
+			</table>
+		
+	<script type="application/javascript" src="${basePath}attendance/jsLib/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="${basePath}attendance/js/base.js"></script>
+	<script type="text/javascript" src="${basePath}attendance/js/main.js"></script>
+	</body>
+</html>

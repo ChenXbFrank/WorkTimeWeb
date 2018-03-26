@@ -1,0 +1,11 @@
+.pagination{ float: right; }
+.add{ margin: 20px 0; }
+.toggle{ color: gray; }
+.toggle.active{ color: red; }
+
+ul{ list-style: none; padding: 0; }
+
+a{ cursor: pointer; }
+.modify-alert>h3.x-clear-MP{ margin-top: 10px; }
+.modify-alert li{ text-align: center; padding: 4px 0; }
+.modify-alert.x-alert-box{ width: 300px; margin-left: -150px; }

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-CN">
+    <meta charset="UTF-8">
+    <title>用户信息</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../cssLib/bootstrap.css"/>
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/user_info.css"/>
+	</head>          
+	<body>         
+		<div class="container">
+			<div class="header">
+				<button type="button" class="btn btn-default home" aria-label="Left Align">
+				  <span class="glyphicon glyphicon-home" aria-hidden="true"></span> 主页 
+				</button>
+				<button type="button" class="btn btn-default set" aria-label="Left Align">
+				  <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> 系统设置
+				</button>
+				<button type="button" class="btn btn-default employees" aria-label="Left Align">
+				  <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> 员工信息
+				</button>
+				<button type="button" class="btn btn-default statistics" aria-label="Left Align">
+				  <span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span> 统计
+				</button>
+				<button type="button" class="btn btn-default exit" aria-label="Left Align">
+				  <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> 退出登录
+				</button>
+			</div>
+			共 18人
+			<table class="table table-bordered table-hover">
+				<thead>
+					<th>序号</th>
+					<th>姓名</th>
+					<th>职位</th>
+			  		<th>电话</th>
+			  		<th>权限</th>
+			  		<th>等级</th>
+			  		<th>操作记录</th>
+			  		<th>编辑</th>
+				</thead>
+			  <tbody>
+			  	<tr>
+			  		<td>01</td>
+			  		<td><a href="employee.html">陈小兵</a></td>
+			  		<td>前端</td>
+			  		<td><a href="">2015-08-32</a></td>
+			  		<td><a href="">1594038940</a></td>
+			  		<td><a href="">电子科技大学</a></td>
+			  		<td><a href="">成都市成华区</a></td>
+			  		<td><a href="" class="btn btn-primary">修改</a><a href="" class="btn btn-primary">删除</a></td>
+			  	</tr>
+			  	<tr>
+			  		<td>02</td>
+			  		<td><a href="employee.html">魏小强</a></td>
+			  		<td>前端</td>
+			  		<td><a href="">2015-07-32</a></td>
+			  		<td><a href="">159403940</a></td>
+			  		<td><a href="">四川大学</a></td>
+			  		<td><a href="">石泉县</a></td>
+			  		<td><a href="" class="btn btn-primary">修改</a><a href="" class="btn btn-primary">删除</a></td>
+			  	</tr>
+			  	
+			  </tbody>
+			
+			</table>
+			  <div class="fl add"><a href="" class="btn btn-primary">新增</a></div>
+			<nav>
+			  <ul class="pagination">
+			    <li>
+			      <a href="#" aria-label="Previous">
+			        <span aria-hidden="true">&laquo;</span>
+			      </a>
+			    </li>
+			    <li><a href="#">1</a></li>
+			    <li><a href="#">2</a></li>
+			    <li><a href="#">3</a></li>
+			    <li><a href="#">4</a></li>
+			    <li><a href="#">5</a></li>
+			    <li>
+			      <a href="#" aria-label="Next">
+			        <span aria-hidden="true">&raquo;</span>
+			      </a>
+			    </li>
+			  </ul>
+			</nav>
+		</div>
+		
+		
+		
+	<script type="application/javascript" src="../jsLib/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="../js/base.js"></script>
+	<script type="text/javascript" src="../js/user_info.js"></script>
+	</body>
+</html>

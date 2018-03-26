@@ -1,0 +1,12 @@
+.add{  width: 300px; display: none;  background-color: #eee;
+	padding: 20px 10px; position: fixed; top: 50%; margin-top: -100px; left: 50%;
+	margin-left: -150px;
+}
+.remarks textarea{ display:none; width: 100%; height: 80px; }
+
+ul{ list-style: none; padding: 0; }
+
+a{ cursor: pointer; }
+.modify-alert>h3.x-clear-MP{ margin-top: 10px; }
+.modify-alert li{ text-align: center; padding: 10px 0; }
+.modify-alert.x-alert-box{ width: 300px; margin-left: -150px; }

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-CN">
+    <meta charset="UTF-8">
+    <base href="${basePath}" data-staticpath="${staticPath}">
+    <title>系统设置</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../cssLib/bootstrap.css"/>
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/system_set.css"/>
+	</head>          
+	<body>         
+		<div class="container">
+			<div class="header">
+				<button type="button" class="btn btn-default home" aria-label="Left Align">
+				  <span class="glyphicon glyphicon-home" aria-hidden="true"></span> 主页 
+				</button>
+				<button type="button" class="btn btn-default set" aria-label="Left Align">
+				  <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> 系统设置
+				</button>
+				<button type="button" class="btn btn-default employees" aria-label="Left Align">
+				  <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> 员工信息
+				</button>
+				<button type="button" class="btn btn-default statistics" aria-label="Left Align">
+				  <span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span> 统计
+				</button>
+				<button type="button" class="btn btn-default exit" aria-label="Left Align">
+				  <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> 退出登录
+				</button>
+			</div>
+			
+			<ul class="list-group">
+			  <li class="list-group-item">
+			  	<div>
+			  		<span>上午上班时间：</span><input type="text" value="9:00"/>-<input type="text" value="12:00"/>
+			  		<span>下午上班时间：</span><input type="text" value="9:00"/>-<input type="text" value="12:00"/>
+			  		<span>标准工时：<span>8小时</span></span>
+			  	</div>
+			  </li>
+			   <li class="list-group-item">
+			  	<div>
+			  		<span>节假日：</span>
+			  		<input type="checkbox" checked value="国庆节"/>国庆节<input class="set-days" type="text" value="7" />天
+			  		&nbsp;&nbsp;&nbsp;<input type="checkbox" value="五一"/>五一<input type="text" class="set-days" value="3" />天
+			  		&nbsp;&nbsp;&nbsp;<input type="checkbox" value="其它"/>其它<input type="text" class="set-days" value="2" />天
+			  		
+			  	</div>
+			  </li>
+			   <li class="list-group-item">
+			  	<div class="btn btn-primary">新建节假日</div>
+			  	<input type="text" placeholder="请输入节假日的名字" />
+			  	<input type="text" placeholder="请输入节假日的开始日期" />——
+			  	<input type="text" placeholder="请输入节假日的结束日期" />
+			  </li>
+			  <li class="list-group-item">
+			  	<div class="btn btn-primary">导入打卡数据</div>
+			  </li>
+			</ul>
+		</div>
+		
+		
+		
+	<script type="application/javascript" src="../jsLib/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="../js/base.js"></script>
+	<script type="text/javascript" src="../js/system_set.js"></script>
+	</body>
+</html>
